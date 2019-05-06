@@ -11,22 +11,22 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         rename_tables_old_to_new(db)
         # Deleting field 'OEmbedVideoPlugin.use_lightbox'
-        db.delete_column(u'aldryn_video_oembedvideoplugin', 'use_lightbox')
+        db.delete_column('aldryn_video_oembedvideoplugin', 'use_lightbox')
 
 
     def backwards(self, orm):
         rename_tables_new_to_old(db)
         # Adding field 'OEmbedVideoPlugin.use_lightbox'
-        db.add_column(u'cmsplugin_oembedvideoplugin', 'use_lightbox',
+        db.add_column('cmsplugin_oembedvideoplugin', 'use_lightbox',
                       self.gf('django.db.models.fields.BooleanField')(default=False),
                       keep_default=False)
 
 
     models = {
-        u'aldryn_video.oembedvideoplugin': {
+        'aldryn_video.oembedvideoplugin': {
             'Meta': {'object_name': 'OEmbedVideoPlugin', 'db_table': "u'cmsplugin_oembedvideoplugin'", '_ormbases': ['cms.CMSPlugin']},
             'auto_play': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
+            'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
             'height': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
             'loop_video': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'oembed_data': ('jsonfield.fields.JSONField', [], {'default': "u'null'", 'null': 'True'}),
@@ -40,7 +40,7 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'CMSPlugin'},
             'changed_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'language': ('django.db.models.fields.CharField', [], {'max_length': '15', 'db_index': 'True'}),
             # 'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             # 'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
@@ -54,7 +54,7 @@ class Migration(SchemaMigration):
         'cms.placeholder': {
             'Meta': {'object_name': 'Placeholder'},
             'default_width': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slot': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'})
         }
     }

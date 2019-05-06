@@ -133,10 +133,10 @@ class Migration(DataMigration):
         pass
 
     models = {
-        u'aldryn_video.oembedvideoplugin': {
+        'aldryn_video.oembedvideoplugin': {
             'Meta': {'object_name': 'OEmbedVideoPlugin', '_ormbases': ['cms.CMSPlugin']},
             'auto_play': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            u'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [],
+            'cmsplugin_ptr': ('django.db.models.fields.related.OneToOneField', [],
                                {'to': "orm['cms.CMSPlugin']", 'unique': 'True', 'primary_key': 'True'}),
             'custom_params': ('django.db.models.fields.CharField', [], {'max_length': '200', 'blank': 'True'}),
             'height': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
@@ -154,7 +154,7 @@ class Migration(DataMigration):
             'Meta': {'object_name': 'CMSPlugin'},
             'changed_date': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'creation_date': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'language': ('django.db.models.fields.CharField', [], {'max_length': '15', 'db_index': 'True'}),
             # 'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             # 'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
@@ -170,7 +170,7 @@ class Migration(DataMigration):
         'cms.placeholder': {
             'Meta': {'object_name': 'Placeholder'},
             'default_width': ('django.db.models.fields.PositiveSmallIntegerField', [], {'null': 'True'}),
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'slot': ('django.db.models.fields.CharField', [], {'max_length': '50', 'db_index': 'True'})
         }
     }

@@ -42,10 +42,10 @@ def build_html_iframe(response, url_params=None, iframe_attrs=None):
 
         html['src'] = urlunparse(url_parts)
 
-        for key, value in iframe_attrs.iteritems():
+        for key, value in iframe_attrs.items():
             if value:
                 html[key] = value
-    return unicode(html)
+    return str(html)
 
 
 def get_player_url(response):
@@ -80,10 +80,10 @@ def rename_tables(db, table_mapping=None, reverse=False):
     table_names = connection.introspection.table_names()
     for source, destination in table_mapping:
         if source in table_names and destination in table_names:
-            print("    WARNING: not renaming {0} to {1}, because both tables "
-                  "already exist.".format(source, destination))
+            print(("    WARNING: not renaming {0} to {1}, because both tables "
+                  "already exist.".format(source, destination)))
         elif source in table_names and destination not in table_names:
-            print("     - renaming {0} to {1}".format(source, destination))
+            print(("     - renaming {0} to {1}".format(source, destination)))
             db.rename_table(source, destination)
 
 
